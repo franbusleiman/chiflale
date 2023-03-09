@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.persistence.*;
 import java.io.File;
+import java.net.URL;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,12 +23,28 @@ public class Pet {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "race")
-    private String race;
+    @ManyToOne(fetch=FetchType.LAZY, optional = false)
+    @JoinColumn(name="breed_id",nullable = false)
+    private Breed breed;
 
     @Column(name = "age")
     private Integer age;
+
+    @Column(name = "latitude")
+    private String latitude;
+
+    @Column(name = "longitude")
+    private String longitude;
+
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "url")
+    private URL resourceUrl;
+
+    @Column(name="owner_id", nullable = false)
+    private Long ownerId;
 }

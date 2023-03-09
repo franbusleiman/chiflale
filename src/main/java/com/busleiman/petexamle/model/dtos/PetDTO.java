@@ -15,6 +15,9 @@ import java.io.File;
 public class PetDTO {
 
     private String name;
-    private String race;
+    private Long breedId;
     private Integer age;
+    private String description;
+    private String latitude;
+    private String longitude;
 }

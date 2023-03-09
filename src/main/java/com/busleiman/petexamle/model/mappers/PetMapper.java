@@ -16,5 +16,7 @@ public interface PetMapper{
     @Mapping(target = "id", ignore = true)
     Pet PetDTOToPet(PetDTO petDTO);
 
+
+    @Mapping(target = "breedId", source = "breed.id")
     PetResponse PetToPetResponse(Pet pet);
 }
